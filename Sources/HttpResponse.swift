@@ -40,7 +40,7 @@ public enum HttpResponseBody {
                     guard JSONSerialization.isValidJSONObject(object) else {
                         throw SerializationError.invalidObject
                     }
-                    let data = try JSONSerialization.data(withJSONObject: object)
+                    let data = try JSONSerialization.data(withJSONObject: object, options:.prettyPrinted)
                     return (data.count, {
                         try $0.write(data)
                     })
